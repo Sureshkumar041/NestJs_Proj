@@ -1,0 +1,21 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TestEntity {
+  username: String!
+  email: String
+}
+
+type Query {
+  getAllTest: [TestEntity!]!
+}
+
+type Mutation {
+  createTest(createTest: TestUserInput!): TestEntity!
+}
+
+input TestUserInput {
+  username: String!
+  email: String
+}

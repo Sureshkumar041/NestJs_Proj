@@ -1,0 +1,161 @@
+NestJs Payanam
+
+// FMI - For My Info
+FMI - Need more Comments (For Attentions, Yes Raa...)
+
+Naal 05-07-2024
+
+Nest Installation
+In Terminal -->
+
+npm i -g @nestjs/cli
+nest new projectName
+
+After installed nest,now we have few default files.
+
+The roles of the files -->
+
+app.controller.ts : Handle request and response functionalities
+app.controller.spec.ts : Handle unit test for controller
+app.module.ts : Root module of application (Like brain for living thing eeE...)
+app.service.ts : Handle store procedure like crud
+main.ts : Entry file of the application (Like overThinking when try to sleep zZzz..)
+
+1,2,3 Lets Play --->
+
+npm run start (Like watching highLights match...)
+npm run start:dev (Watching live matching...)
+
+Nest run panniten,aprm na database dhan pakke poren ...
+Already Mongodb therium,so let try PostgreSQL. But why...? Bcoz I'm trying learn one of RDBM (Except Sql or MySql.Bcoz I heard lot about these RDBM).
+
+Romba type panrano.Apdiye Leave it...
+
+PostgreSQL installation:
+
+This link navigate to Postgresql official document (there are few commands to execute in uare terminal)
+ |
+https://www.postgresql.org/download/ 
+
+PgAdmin installation:
+
+This link navigate to PgAdmin official document (there are few commands to execute in uare terminal)
+ |
+https://www.pgadmin.org/download/ 
+
+Now time to recharge (Which means I can't call u without balance on my cell).
+
+TypeORM & Pg (PostgreSQL)
+
+In project folder path (Terminal):
+npm install --save @nestjs/typeorm typeorm pg
+
+Pg --> Its help to connect and commiunicating with PostgreSQL (Pg like Internet eeEEEEE...).
+
+Naal 10-07-2024
+
+Yes, It's gud to start again, bcoz of red ball...
+
+TypeORM :
+	TypeORM --> ORM (Object Relational Manager) for a typeScript.It allows developers to interact with databases using a more abstracted and object-oriented approach rather than writing raw SQL queries.
+
+Connect the database (Moments cant forget from ennoda heart)
+
+Create Resource :
+	nest g res folderName - After executed that command --> dto,entities,controller,service,module (with crud functionality included) these file are created inside scr/folderName .
+	
+DTO :
+	Data Transfer Object - 	It's an Object - Body request from client side. DTOs validate incoming data from the client.
+
+Entities (Schema) :
+	Its used for tables , collection (Data layer for data storage).
+
+Controller :
+	Handle incoming request and generate response for client.
+	
+Service :
+	Handle database operation and give response for controller.
+	
+MetaData : 
+	Its very important in nest application, bcoz its defines a structure and behaviour of the application
+
+Decorator :
+	Its fundamental part of the framework's design. Its allow to add (metadata) and their members (methods, properties, etc...) which the framework uses to configure and manage the application's behavior.
+	
+Key Purposes of Decorators in NestJS
+
+Defining controller --> @ Controller(),Get(),Post(),Delete(),Put()
+Dependency infection --> @ Injectable(), Inject()
+Request and Response Mapping --> @ Body(), Param(), Query(), @Headers()
+Modules --> @Module()
+Exception Handling --> @ Catch()
+Guards, Pipes, and Interceptors --> @ UseGuards(), UsePipes(), UseInterceptors()
+Custom Decorators --> (See u soon).
+
+Create Entity (data definition for collection - Table) :
+	
+	
+Create DTO :
+
+Database created (with one table - user) and connected successfully
+
+Naal 11-07-2024
+
+Env (.env) :
+	npm i --save @nestjs/config (for env setup)
+
+Naal 12-07-2024
+
+Creating user entity (Created separate table for attachment)
+
+Relations () :
+	Relations are associations established between two or more tables. Relations are based on common fields from each table, often involving primary and foreign keys
+	
+	OneToOne()
+	OneToMany() / ManyToOne()
+	ManyToMany()
+	
+Validation :
+	npm i --save class-validator class-transformer 
+	Its used to validating user request in nestjs
+	
+File Uploading :
+	In build module --> Multer : 
+	npm install multer  
+	npm i -D @types/multer
+	
+Attachment controller working ...
+See U Soon ...
+eeE : )
+	
+Naal 20-08-2024
+
+Continue attachment controller ...
+Again stopped 
+
+Now time to start graphQL setUp eeE ...
+
+Install -->
+    npm i @nestjs/graphql @nestjs/apollo @apollo/server graphql
+
+Nest --> 2 ways to achieve graphQL application
+    1. Code First
+    2. Schema First
+
+Code First
+    We use decorators and TypeScript classes to generate the corresponding GraphQL schema.
+
+FMI =>
+
+TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      entities: [], // Entity
+      database: process.env.DB_NAME,
+      synchronize: true,
+      logging: true,
+      retryAttempts: 1,
+})

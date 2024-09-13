@@ -1,8 +1,7 @@
-import { Attachment } from 'src/attachment/entity/attachment.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class User {
+export class HumanEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -20,7 +19,4 @@ export class User {
 
   @Column({ type: 'boolean' })
   isActive: boolean;
-
-  @OneToMany((type) => Attachment, (attachment) => attachment?.user)
-  attachment: Attachment;
 }
